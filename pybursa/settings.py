@@ -24,7 +24,7 @@ SECRET_KEY = '+wj_g0r9h4&iucqv&ksnrk37393#lz-)#=h3b+*vqoomc(3_39'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -118,10 +118,10 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-#STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, 'static'),
-#]
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 
 LOGGING = {
@@ -162,17 +162,3 @@ LOGGING = {
         }
     }
 }
-
-import dj_database_url
-DATABASES['default'] = dj_database_url.config()
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-ALLOWED_HOSTS = ['*']
-
-DEBUG = False
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
